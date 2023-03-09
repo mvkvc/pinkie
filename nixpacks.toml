@@ -1,0 +1,34 @@
+providers = ['elixir']
+
+[variables]
+NIXPACKS_ELIXIR_VERSION = 'latest'
+MIX_ENV = 'prod'
+IPFS_PATH = '/app/.ipfs/'
+LANG='en_US.UTF-8'
+
+[phases.setup]
+nixpkgsArchive = 'a1291d0d020a200c7ce3c48e96090bfa4890a475'
+nixPkgs = [
+    '...',
+    'gcc',
+    'gnumake',
+    'inotify-tools',
+    'nodejs-18_x',
+    'kubo'
+]
+cmds = [
+    'mix local.hex --force',
+    'mix local.rebar --force',
+    'mix deps.get --only prod',
+    'npm install',
+    'ipfs init --profile server'
+]
+
+[phases.build]
+cmds = [
+    'mix compile',
+    'mix assets.deploy'
+]
+
+[start]
+cmd = 'shell/startup.sh'

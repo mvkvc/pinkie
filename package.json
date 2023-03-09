@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "tailwind": "tailwindcss -i ./assets/css/input.css -o ./assets/css/output.css",
+    "tailwind:watch": "tailwindcss -i ./assets/css/input.css -o ./assets/css/output.css -w",
+    "format": "prettier --write assets/",
+    "format:check": "prettier --check assets/"
+  },
+  "devDependencies": {
+    "daisyui": "^2.51.3",
+    "prettier": "^2.8.4",
+    "tailwindcss": "^3.2.7"
+  }
+}
