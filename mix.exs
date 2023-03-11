@@ -58,8 +58,8 @@ defmodule Pinkie.MixProject do
 
   defp deps do
     [
-      {:kubo_ex, path: "../kubo_ex"},
-      # {:kubo_ex, git: "https://github.com/mvkvc/kubo_ex.git"},
+      # {:kubo_ex, path: "../kubo_ex"},
+      {:kubo_ex, git: "https://github.com/mvkvc/kubo_ex.git"},
       {:bcrypt_elixir, "~> 3.0"},
       {:phoenix, "~> 1.6.15"},
       {:phoenix_ecto, "~> 4.4"},
