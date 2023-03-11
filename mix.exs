@@ -96,9 +96,11 @@ defmodule Pinkie.MixProject do
       test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
       "assets.deploy": ["tailwind.minify", "esbuild default --minify", "phx.digest"],
       docs: ["docs --formatter html"],
+      format: ["prettier", "format"],
       tailwind: ["cmd npm run tailwind"],
       "tailwind.watch": ["cmd npm run tailwind:watch"],
-      "tailwind.minify": ["cmd npm run tailwind:minify"]
+      "tailwind.minify": ["cmd npm run tailwind:minify"],
+      prettier: ["cmd npm run prettier"]
     ]
   end
 end

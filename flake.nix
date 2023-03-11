@@ -11,14 +11,18 @@
       let pkgs = nixpkgs.legacyPackages.${system}; in {
         devShell = pkgs.mkShell {
           buildInputs = with pkgs; [
-            elixir
             gcc
             gnumake
             inotify-tools
+            elixir
             nodejs-18_x
             kubo
+            go_1_20
             nixpacks
             # docker
+            # docker-compose
+            # ansible
+            # terraform
           ];
           shellHook = ''
             export MIX_ENV=dev
