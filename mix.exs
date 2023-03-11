@@ -58,8 +58,8 @@ defmodule Pinkie.MixProject do
 
   defp deps do
     [
-      # {:kubo_ex, path: "../kubo_ex"},
-      {:kubo_ex, git: "https://github.com/mvkvc/kubo_ex.git"},
+      {:kubo_ex, path: "../kubo_ex"},
+      # {:kubo_ex, git: "https://github.com/mvkvc/kubo_ex.git"},
       {:bcrypt_elixir, "~> 3.0"},
       {:phoenix, "~> 1.6.15"},
       {:phoenix_ecto, "~> 4.4"},
@@ -94,12 +94,11 @@ defmodule Pinkie.MixProject do
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
-      format: ["format", "cmd npm run format"],
-      "format.check": ["format --check-formatted", "cmd npm run format:check"],
+      "assets.deploy": ["tailwind.minify", "esbuild default --minify", "phx.digest"],
+      docs: ["docs --formatter html"],
       tailwind: ["cmd npm run tailwind"],
       "tailwind.watch": ["cmd npm run tailwind:watch"],
-      "assets.deploy": ["tailwind", "esbuild default --minify", "phx.digest"],
-      docs: ["docs --formatter html"]
+      "tailwind.minify": ["cmd npm run tailwind:minify"]
     ]
   end
 end

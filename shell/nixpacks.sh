@@ -7,8 +7,8 @@ TS=$(date +%y_%m_%d)
 nixpacks detect .
 nixpacks plan .
 nixpacks build \
-  -n ${DOCKER_IMAGE}:latest \
-  -t ${DOCKER_IMAGE}:"$TS" \
+  -n "${DOCKER_IMAGE}":latest \
+  -t "${DOCKER_IMAGE}":"$TS" \
       .
-docker push ${DOCKER_IMAGE}:latest
-docker push ${DOCKER_IMAGE}:"$TS"
+docker push "${DOCKER_IMAGE}":latest
+docker push "${DOCKER_IMAGE}":"$TS"

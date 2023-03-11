@@ -1,13 +1,11 @@
 {
   "scripts": {
-    "tailwind": "tailwindcss -i ./assets/css/input.css -o ./assets/css/output.css",
-    "tailwind:watch": "tailwindcss -i ./assets/css/input.css -o ./assets/css/output.css -w",
-    "format": "prettier --write assets/",
-    "format:check": "prettier --check assets/"
+    "tailwind": "tailwindcss -i ./assets/css/app.css -o ./priv/static/assets/app.css",
+    "tailwind:watch": "tailwindcss -i ./assets/css/app.css -o ./priv/static/assets/app.css -w",
+    "tailwind:minify": "tailwindcss -i ./assets/css/app.css -o ./priv/static/assets/app.css --minify"
   },
-  "devDependencies": {
+  "dependencies": {
     "daisyui": "^2.51.3",
-    "prettier": "^2.8.4",
     "tailwindcss": "^3.2.7"
   }
 }
