@@ -18,4 +18,4 @@ mix "do" local.hex --force --if-missing
 mix escript.install hex livebook
 mix deps.get
 mix deps.compile
-npm install -D
+npm install

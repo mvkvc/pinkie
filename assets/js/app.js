@@ -1,6 +1,6 @@
 // We import the CSS which is extracted to its own file by esbuild.
 // Remove this line if you add a your own CSS build pipeline (e.g postcss).
-import "../css/app.css";
+// import "../css/app.css";
 
 // If you want to use Phoenix channels, run `mix help phx.gen.channel`
 // to get started and then uncomment the line below.
@@ -46,3 +46,29 @@ liveSocket.connect();
 // >> liveSocket.enableLatencySim(1000)  // enabled for duration of browser session
 // >> liveSocket.disableLatencySim()
 window.liveSocket = liveSocket;
+
+// https://elixirforum.com/t/how-to-add-dark-mode-for-phoenix-1-7/54356/3
+function darkExpected() {
+  return (
+    localStorage.theme === "dark" ||
+    (!("theme" in localStorage) &&
+      window.matchMedia("(prefers-color-scheme: dark)").matches)
+  );
+}
+
+function initDarkMode() {
+  // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+  if (darkExpected()) document.documentElement.classList.add("dark");
+  else document.documentElement.classList.remove("dark");
+}
+
+window.addEventListener("toggle-darkmode", (e) => {
+  if (darkExpected()) localStorage.theme = "light";
+  else localStorage.theme = "dark";
+  initDarkMode();
+});
+
+initDarkMode();
+
+// trigger
+// phx-click={JS.dispatch("toggle-darkmode")}
