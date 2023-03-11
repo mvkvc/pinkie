@@ -10,5 +10,3 @@ nixpacks build \
   -n "${DOCKER_IMAGE}":latest \
   -t "${DOCKER_IMAGE}":"$TS" \
       .
-docker push "${DOCKER_IMAGE}":latest
-docker push "${DOCKER_IMAGE}":"$TS"

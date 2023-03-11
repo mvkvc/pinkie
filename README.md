@@ -19,7 +19,7 @@ Self-hostable remote pinning service for IPFS.
 
 ## Deployment
 
-The recommended way to deploy the Pinkie server is using Docker. [Nixpacks](https://github.com/railwayapp/nixpacks) is used to build the production image with `shell/nixpacks.sh build` or you can pull the image from [Docker Hub](https://hub.docker.com/r/mvkvc/pinkie). The necessary configuration options are documented in the [configuration](https://docs.pinkie.sh/configuration) section of the documentation.
+The recommended way to deploy the Pinkie server is using Docker Compose in `shell/docker.sh prod`, with additional methods planned. [Nixpacks](https://github.com/railwayapp/nixpacks) is used to build the production image with `shell/nixpacks.sh build` or you can pull the image from [Docker Hub](https://hub.docker.com/r/mvkvc/pinkie). The necessary configuration options are documented in the [configuration](https://docs.pinkie.sh/configuration) section of the documentation.
 
 ## Development
 

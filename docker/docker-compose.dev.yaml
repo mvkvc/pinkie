@@ -1,0 +1,20 @@
+version: '2'
+services:
+  web:
+    image: "${DOCKER_IMAGE}:dev"
+    # ports:
+    #   - "4000:4000"
+    volumes:
+      - "${DOCKER_SQLITE_PATH}:/app/.sqlite"
+    env_file: ../.env
+    # depends_on:
+    #   - ipfs
+  ipfs:
+    # image: ipfs/kubo:master-2023-03-10-a4052c6
+    # ports:
+    #   - "4001:4001"
+    #   - "4001:4001/udp"
+    #   - "127.0.0.1:5001:5001"
+    #   - "127.0.0.1:8080:8080"
+    volumes:
+      - "${DOCKER_IPFS_PATH}:/app/.ipfs"

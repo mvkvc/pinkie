@@ -13,18 +13,17 @@ set -a; source .env; set +a
 
 case "$1" in
   build)
-    docker build -f Dockerfile -t "$DOCKER_IMAGE":dev .
-    docker push "$DOCKER_IMAGE":dev
+    shell/nixpacks.sh
+    docker build -f docker/dev.Dockerfile -t "$DOCKER_IMAGE":dev .
     ;;
-  run)
-    docker run --rm -it \
-      -v sqlite:/app/sqlite \
-      -v "${IPFS_PATH}":/app/.ipfs \
-      -p 4000:4000 \
-      -p 5001:5001 \
-      --env-file .env \
-      -e DATABASE_PATH=/app/sqlite/pinkie-dev.db \
-      "$DOCKER_IMAGE":dev
+  push)
+    docker push "$DOCKER_IMAGE" -a
+    ;;
+  dev)
+    docker compose -f docker/docker-compose.yaml -f docker/docker-compose.dev.yaml up
+    ;;
+  prod)
+    docker compose -f docker/docker-compose.yaml -f docker/docker-compose.prod.yaml up
     ;;
   *)
     usage
