@@ -13,8 +13,8 @@ set -a; source .env; set +a
 
 case "$1" in
   build)
-    docker build -f docker/dev.Dockerfile -t $DOCKER_IMAGE:dev .
-    docker push $DOCKER_IMAGE:dev
+    docker build -f Dockerfile -t "$DOCKER_IMAGE":dev .
+    docker push "$DOCKER_IMAGE":dev
     ;;
   run)
     docker run --rm -it \
@@ -24,7 +24,7 @@ case "$1" in
       -p 5001:5001 \
       --env-file .env \
       -e DATABASE_PATH=/app/sqlite/pinkie-dev.db \
-      $DOCKER_IMAGE:dev
+      "$DOCKER_IMAGE":dev
     ;;
   *)
     usage

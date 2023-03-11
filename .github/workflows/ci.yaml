@@ -6,24 +6,25 @@ on:
     branches:
       - main
     paths:
-      - "lib/**"
-      - "test/**"
-      - "config/*"
-      - "mix.lock"
-      - "mix.exs"
+      - lib/**
+      - test/**
+      - config/*
+      - mix.lock
+      - mix.exs
   pull_request:
     branches:
       - main
     paths:
-      - "lib/**"
-      - "test/**"
-      - "config/*"
-      - "mix.lock"
-      - "mix.exs"
+      - lib/**
+      - test/**
+      - config/*
+      - mix.lock
+      - mix.exs
 
 env:
   ELIXIR_VERSION: 1.14.3
   OTP_VERSION: 25
+  MIX_ENV: dev
 
 jobs:
   test:
@@ -54,16 +55,6 @@ jobs:
       - name: Run Tests
         run: mix test
         if: success() || failure()
-
-      - name: Generate Coverage Report
-        run: mix coveralls.json
-        if: success() || failure()
-
-      - name: Upload Coverage Report
-        uses: codecov/codecov-action@v3
-        with:
-          files: cover/excoveralls.json
-          token: ${{ secrets.CODECOV_TOKEN }}
 
   security:
     runs-on: ubuntu-latest
@@ -153,7 +144,7 @@ jobs:
         if: success() || failure()
 
       - name: Check Formatting
-        run: mix format.check
+        run: mix format --check-formatted
         if: success() || failure()
 
       - name: Run Credo

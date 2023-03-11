@@ -6,12 +6,11 @@ on:
     branches:
       - main
     paths:
-      - "lib/**/*.ex"
-      - "docs/**"
-      - "mix.lock"
-      - "mix.exs"
-      - "CHANGELOG.md"
-      - "README.md"
+      - lib/**
+      - docs/**
+      - mix.lock
+      - mix.exs
+      - README.md
 
 env:
   ELIXIR_VERSION: 1.14.3
@@ -32,7 +31,7 @@ jobs:
         id: mix-cache
         with:
           path: deps
-          key: ${{ runner.os }}-${{ env.OTP_VERSION }}-${{ env.ELIXIR_VERSION }}-mix-${{ env.MIX_ENV }}-${{ hashFiles('**/mix.lock') }}
+          key: ${{ runner.os }}-${{ env.OTP_VERSION }}-${{ env.ELIXIR_VERSION }}-mix-${{ hashFiles('**/mix.lock') }}
 
       - name: Install Mix Dependencies
         run: |

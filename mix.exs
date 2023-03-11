@@ -94,12 +94,11 @@ defmodule Pinkie.MixProject do
       "ecto.setup": ["ecto.create", "ecto.migrate", "run priv/repo/seeds.exs"],
       "ecto.reset": ["ecto.drop", "ecto.setup"],
       test: ["ecto.create --quiet", "ecto.migrate --quiet", "test"],
-      format: ["format", "cmd npm run format"],
-      "format.check": ["format --check-formatted", "cmd npm run format:check"],
+      "assets.deploy": ["tailwind.minify", "esbuild default --minify", "phx.digest"],
+      docs: ["docs --formatter html"],
       tailwind: ["cmd npm run tailwind"],
       "tailwind.watch": ["cmd npm run tailwind:watch"],
-      "assets.deploy": ["tailwind", "esbuild default --minify", "phx.digest"],
-      docs: ["docs --formatter html"]
+      "tailwind.minify": ["cmd npm run tailwind:minify"]
     ]
   end
 end
