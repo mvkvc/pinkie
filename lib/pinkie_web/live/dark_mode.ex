@@ -5,6 +5,7 @@ defmodule PinkieWeb.DarkModeLive do
   def render(assigns) do
     ~H"""
     <button
+    id="toggle-darkmode"
     phx-click={JS.push("toggle-darkmode") |> JS.dispatch("toggle-darkmode")}
     class="btn bg-slate-50 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700"
     >Toggle dark mode</button>
