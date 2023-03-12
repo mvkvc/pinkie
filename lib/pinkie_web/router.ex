@@ -3,6 +3,11 @@ defmodule PinkieWeb.Router do
 
   import PinkieWeb.UserAuth
 
+  # Wallaby
+  # live_session :default, on_mount: MyApp.Hooks.AllowEctoSandbox do
+  #   ...
+  # end
+
   pipeline :browser do
     plug :accepts, ["html"]
     plug :fetch_session

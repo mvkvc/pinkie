@@ -18,7 +18,12 @@ config :pinkie, Pinkie.Repo,
 config :pinkie, PinkieWeb.Endpoint,
   http: [ip: {127, 0, 0, 1}, port: 4002],
   secret_key_base: "MYvYb2n3VtvRektCEuhrFn26K6z4Aop40F9MYZFZxTziYlVMIMsMy2D/giPfE9Jb",
-  server: false
+  # server: false
+  # Wallaby
+  server: true
+
+# Wallaby
+config :pinkie, :sandbox, Ecto.Adapters.SQL.Sandbox
 
 # In test we don't send emails.
 config :pinkie, Pinkie.Mailer, adapter: Swoosh.Adapters.Test
